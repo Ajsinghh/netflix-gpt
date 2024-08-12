@@ -1,5 +1,5 @@
 import  { useEffect, useState } from "react";
-import { API_OPTION } from "../../Utilities/constants";
+import { API_OPTION } from "../Utilities/constants";
 
 const useBackgroundVideo = (movieId) => {
     const [movieTrailer, setMovieTrailer] = useState(null);

@@ -32,14 +32,13 @@ const Login = () => {
           .then((userCredential) => {
             // Signed up
             const user = userCredential.user;
-            console.log(name.current.value)
             updateProfile(auth.currentUser, {
               displayName: name.current.value,
-              photoURL: "https://example.com/jane-q-user/profile.jpg",
+              photoURL: "src/Img/netflix-profile-pictures.webp",
             })
               .then(() => {
-                const {email,uid,displayName} = auth.currentUser;
-                dispatch(addUser({uid:uid,email:email,displayName:displayName}))
+                const {email,uid,displayName,photoURL} = auth.currentUser;
+                dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}))
                 // Profile updated!
                 // ...
               })

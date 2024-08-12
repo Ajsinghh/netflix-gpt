@@ -9,7 +9,6 @@ const Header = () => {
   const user = useSelector(store => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  console.log(user)
   const handleButton = ()=>{
     signOut(auth)
       .then(() => {
@@ -21,7 +20,6 @@ const Header = () => {
     }
       useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (user) => {
-          console.log(user);
           if (user) {
             const { uid, email, displayName } = user;
             dispatch(
@@ -38,16 +36,21 @@ const Header = () => {
         return ()=> unSubscribe();
       }, []);
   return (
-    <div className=" absolute w-screen px-8 py-2 bg-gradient-to-b from-black flex flex-row justify-between z-20">
-      <img
-        className="w-44"
-        alt=""
-        src={LOGO}
-      />
-      {user && <div className='relative translate-y-1/2 -bottom-1/2' >
-        <button onClick={handleButton}>sign out</button>
-      </div>
-     }
+    <div className=" absolute w-screen  bg-gradient-to-b from-black flex flex-row justify-between z-20">
+      <img className="w-60 px-8 py-2" alt="" src={LOGO} />
+      {user && (
+        <div className=" mr-8  mt-2 gap-7 text-white flex flex-row ">
+          <div>
+            <img
+              className="size-12"
+              alt="user logo"
+              src="https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651_640.png"
+            />
+            <div className="translate-x-1/4">{user.displayName}</div>
+          </div>
+          <button onClick={handleButton}>Sign Out</button>
+        </div>
+      )}
     </div>
   );
 }

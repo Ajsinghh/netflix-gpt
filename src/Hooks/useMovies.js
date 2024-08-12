@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { API_OPTION } from "../../Utilities/constants";
+import { API_OPTION } from "../Utilities/constants";
 import { useDispatch } from "react-redux";
-import { addMovies } from "../../Utilities/moviesSlice";
+import { addMovies } from "../Utilities/moviesSlice";
 
 const useMovies = ()=>{
     const dispatch = useDispatch();
@@ -11,7 +11,6 @@ const useMovies = ()=>{
           API_OPTION
         );
         const json = await data.json();
-        console.log(json);
         dispatch(addMovies(json.results))
         return json.results;
     }

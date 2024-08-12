@@ -13,7 +13,6 @@ const userSlice = createSlice({
         
     },
 })
-console.log(userSlice);
 export const{addUser, removeUser,isSignedIn} = userSlice.actions;
 
 export default userSlice.reducer;

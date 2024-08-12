@@ -9,3 +9,4 @@ export const API_OPTION = {
         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjNWY3Y2NlNjk2MTVjZTU4ZWNlZmI2NGE4YTExZjJlOCIsIm5iZiI6MTcyMjE2NzE4My45ODg3Nywic3ViIjoiNjZhNjJiZGFlM2U5MDIzZWEyNzQ2MWM4Iiwic2NvcGVzIjpbImFwaV9yZWFkIl0sInZlcnNpb24iOjF9.Bi3R1ySlY-Se2BIfVjLZ5QnPbUPQRu61ZgeBufd1kUE",
     },
   };
+  export const MOVIE_CARD = "https://media.themoviedb.org/t/p/w220_and_h330_face";

@@ -1,13 +1,13 @@
 import React from 'react'
 import Header from './Header'
-import useMovies from './Hooks/useMovies'
 import MainContainer from './MainContainer'
+import SecondaryContainer from './SecondaryContainer'
 const Browse = () => {
-  useMovies();
   return (
-    <div>
+    <div className='relative size-full'>
       <Header />
       <MainContainer />
+      <SecondaryContainer/>
     </div>
   );
 }
