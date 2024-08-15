@@ -1,7 +1,7 @@
 import React from 'react'
 import MovieCards from './MovieCards'
 import '../index.css'
-const MovieTitle = ({title , movies}) => {
+const MovieList = ({title , movies}) => {
   return (
     <div className="p-4 ">
         <div className="text-2xl font-bold mb-3 text-white">{title}</div>
@@ -16,4 +16,4 @@ const MovieTitle = ({title , movies}) => {
   );
 }
 
-export default MovieTitle
+export default MovieList
