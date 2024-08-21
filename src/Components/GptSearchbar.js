@@ -45,19 +45,19 @@ const GptSearchbar = () => {
 
   return (
     <div>
-      <img className="fixed -z-10" src={BG_NETFLIX} alt="bg-netflix" />
-      <div className="flex justify-center pt-[10%]">
+      <img className="fixed -z-10 h-screen object-cover md:h-auto" src={BG_NETFLIX} alt="bg-netflix" />
+      <div className="flex justify-center pt-[45%] md:pt-[10%]">
         <form
-          className="grid grid-cols-12 w-1/2 bg-black rounded-lg"
+          className="grid grid-cols-12 w-full md:w-1/2 bg-black rounded-lg"
           onSubmit={(e) => e.preventDefault()}
         >
           <input
             ref={searchInput}
-            className="col-span-9 p-4 m-4 text-black"
+            className="col-span-8 p-4 px-1 m-4 mr-0 md:mr-4 md:col-span-9 md:p-4 text-black"
             placeholder={lang[currLang].gptSearchPlaceholder}
           />
           <button
-            className="col-span-3 bg-red-700 m-4 py-2 px-4 text-white rounded-xl"
+            className="col-span-4 bg-red-700 m-4 py-2 px-4 text-white rounded-xl md:col-span-3"
             onClick={handleSearchButton}
           >
             {lang[currLang].search}

@@ -32,19 +32,6 @@ const VideoTitle = ({movie, shown,showIndex,setShowIndex,numOfMovies}) => {
       <div className="relative">
         {shown && (
           <div className="relative">
-            <div className="relative min-h-screen aspect-video pl-36 pt-[17%]  text-white z-10 bg-gradient-to-r from-black ">
-              <div className="text-5xl font-bold ">{movie.title}</div>
-              <div className="w-2/4 pt-4">{movie.overview}</div>
-              <div className="flex flex-row gap-5 mt-3">
-                <div className="bg-white text-black py-2 px-5 rounded-lg font-bold flex gap-2 hover:bg-opacity-80">
-                  <div className="text-xl -translate-y-3/8">▶</div>
-                  <div className="text-lg">Play</div>
-                </div>
-                <div className="bg-gray-700 text-white opacity-570 py-2 px-5 rounded-lg  text-lg hover:bg-opacity-50">
-                  More Info
-                </div>
-              </div>
-            </div>
             <div className="absolute w-full  z-0 aspect-video top-0 ">
               <iframe
                 className="size-full  "
@@ -59,6 +46,19 @@ const VideoTitle = ({movie, shown,showIndex,setShowIndex,numOfMovies}) => {
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen
               ></iframe>
+            </div>
+            <div className="relative  aspect-video pt-[31%] md:pl-36 md:pt-[17%]  text-white z-10 bg-gradient-to-r from-black ">
+              <div className="text-xl md:text-5xl font-bold ">{movie.title}</div>
+              <div className="hidden md:block w-2/4 pt-4">{movie.overview}</div>
+              <div className="flex flex-row gap-5 mt-3">
+                <div className="bg-white text-black py-2 px-5 rounded-lg font-bold flex gap-2 hover:bg-opacity-80">
+                  <div className="text-xl -translate-y-3/8">▶</div>
+                  <div className="text-lg">Play</div>
+                </div>
+                <div className="bg-gray-700 text-white opacity-570 py-2 px-5 rounded-lg  text-lg hover:bg-opacity-50">
+                  More Info
+                </div>
+              </div>
             </div>
             <div className=" absolute top-1/2 -translate-y-1/2 w-full z-10">
               <div className="flex flex-row justify-between text-3xl text-white">

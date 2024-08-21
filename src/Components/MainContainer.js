@@ -7,7 +7,7 @@ const MainContainer = () => {
    const movies = useSelector(store => store.movies.nowPlayingMovies)
     if(!movies) return;
   return (
-    <div className="size-full relative">
+    <div className="pt-28 md:p-0 size-full relative bg-black">
       {movies.map((element, index) => {
         return (
           <VideoTitle

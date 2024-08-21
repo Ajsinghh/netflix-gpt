@@ -24,7 +24,6 @@ const Login = () => {
     const message = checkValidData(email.current.value, password.current.value);
     setErrorMessage(message);
     if(message) return;
-    console.log("hey");
     if(!isSignInForm){
         createUserWithEmailAndPassword(auth,
            email.current.value,
@@ -47,7 +46,6 @@ const Login = () => {
                 // An error occurred
                 // ...
               });
-              console.log(user);
               // ...
           })
           .catch((error) => {
@@ -60,7 +58,6 @@ const Login = () => {
           signInWithEmailAndPassword(auth,email.current.value, password.current.value)
           .then((userCredential)=>{
             const user = userCredential.user;
-            console.log(user);
           })
           .catch((error)=>{
             const errorCode = error.code;
@@ -71,10 +68,11 @@ const Login = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="">
       <Header />
       <div>
         <img
+          className="fixed -z-10 h-screen object-cover md:h-auto"
           src={BG_NETFLIX}
           alt="background-  img"
         />

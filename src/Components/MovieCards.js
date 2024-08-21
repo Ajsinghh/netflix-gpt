@@ -3,7 +3,7 @@ import { MOVIE_CARD } from '../Utilities/constants'
 const MovieCards = ({movie}) => {
    if(!movie?.poster_path) return;
     return (
-      <div className="w-40 hover:w-44 transition duration-150 ease-out hover:ease-in">
+      <div className="w-32 md:w-40 md:hover:w-44 transition duration-150 ease-out hover:ease-in">
         <img
           className="rounded-2xl"
           alt="card"
