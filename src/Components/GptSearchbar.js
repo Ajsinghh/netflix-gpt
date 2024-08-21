@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import lang from "../Utilities/languageConstant";
 import { BG_NETFLIX } from "../Utilities/constants";
@@ -17,7 +17,7 @@ const GptSearchbar = () => {
         "&include_adult=false&language=en-US&page=1",
       API_OPTION
     );
-    const json = data.json();
+    const json =await data.json();
     return json.results;
   };
 
@@ -35,9 +35,11 @@ const GptSearchbar = () => {
 
     const promiseArray = gptMovies.map((movie) => searchedMovies(movie));
 
-    const tmdbResults = Promise.all(promiseArray);
+    const tmdbResults = await Promise.all(promiseArray);
+    console.log(gptMovies);
+    console.log(tmdbResults);
     dispatch(
-      addGptMovieResult({ movieName: gptMovies, movieResults: tmdbResults })
+      addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
     );
   };
 

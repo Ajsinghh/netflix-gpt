@@ -16,6 +16,7 @@ const Browse = () => {
   usePopularMovies();
   useTopRatedMovies();
   useUpcominMovies();
+  
   const gptSearch = useSelector((store) => store.gpt.gptSearchState);
   return (
     <div className="relative size-full">

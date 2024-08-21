@@ -5,7 +5,6 @@ import reportWebVitals from './reportWebVitals';
 import Body from './Components/Body';
 import { Provider } from 'react-redux';
 import appStore from './Utilities/appstore';
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={appStore}>

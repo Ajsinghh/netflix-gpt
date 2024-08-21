@@ -1,28 +1,32 @@
 import React from 'react'
 import useBackgroundVideo from '../Hooks/useBackgroundVideo';
+import { useSelector } from 'react-redux';
 
 const VideoTitle = ({movie, shown,showIndex,setShowIndex,numOfMovies}) => {
-  var movieTrailer = useBackgroundVideo(movie.id);
+  const loading = useBackgroundVideo(movie.id);
   
+  const trailer = useSelector(store => store?.movies?.movieTrailer[movie?.id] || [])
+  if(loading){
+    return <p>Loading....</p>
+  }
+  const movieTrailer = trailer.filter((ele) => ele.type === "Trailer");
   
-  if (!movieTrailer) return;
-  movieTrailer = movieTrailer.filter((ele) => ele.type === "Trailer");
-
   const handleRightButton = ()=>{
-       setShowIndex((showIndex+1)%numOfMovies);
+    setShowIndex((showIndex+1)%numOfMovies);
   }
   const handleLeftButton = ()=>{
-       console.log(showIndex)
-       if(showIndex === 0) {
-        console.log("hello")
-        console.log(numOfMovies)
-        setShowIndex(numOfMovies-1)
-        return;
-      }
-       else{
-         setShowIndex((showIndex-1));
-       }
+    console.log(showIndex)
+    if(showIndex === 0) {
+      console.log("hello")
+      console.log(numOfMovies)
+      setShowIndex(numOfMovies-1)
+      return;
+    }
+    else{
+      setShowIndex((showIndex-1));
+    }
   }
+
   return (
     <div className="size-full relative">
       <div className="relative">
