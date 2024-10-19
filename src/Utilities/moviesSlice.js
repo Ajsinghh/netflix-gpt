@@ -9,6 +9,8 @@ const moviesSlice = createSlice({
     topRatedMovies: null,
     upcomingMovies: null,
     movieTrailer: {},
+    favourateMovies:[],
+    isFavourate:{},
   },
   reducers: {
     addMovies: (state, action) => {
@@ -29,7 +31,19 @@ const moviesSlice = createSlice({
     addUpcomingMovies: (state,action) =>{
         state.upcomingMovies = action.payload;
     },
+    addFavourateMovies: (state,action) =>{
+      state.favourateMovies.push(action.payload);
+      state.isFavourate[action.payload.id] = true;
+    },
+    removeFavourateMovies: (state,action) =>{
+      const movieId = action.payload;
+      console.log(`Removing movie with id: ${movieId}`);
+      state.favourateMovies = state.favourateMovies.filter(
+        (movie) => movie.id === action.payload
+      );
+      delete state.isFavourate[action.payload];
+    },
   },
 });
-export const {addMovies ,addNowPlayingMovies,addPopularMovies,addTopRatedMovies, addUpcomingMovies,addMovieTrailer} = moviesSlice.actions;
+export const {addMovies ,addNowPlayingMovies,addPopularMovies,addTopRatedMovies, addUpcomingMovies,addMovieTrailer,addFavourateMovies,removeFavourateMovies} = moviesSlice.actions;
 export default moviesSlice.reducer

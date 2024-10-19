@@ -3,9 +3,9 @@ import VideoTitle from './VideoTitle'
 import { useSelector } from 'react-redux'
 
 const MainContainer = () => {
-    const [showIndex,setShowIndex] = useState(0);
-   const movies = useSelector(store => store.movies.nowPlayingMovies)
-    if(!movies) return;
+  const [showIndex,setShowIndex] = useState(0);
+  const movies = useSelector(store => store.movies.nowPlayingMovies)
+  if(!movies) return;
   return (
     <div className="pt-28 md:p-0 size-full relative bg-black">
       {movies.map((element, index) => {

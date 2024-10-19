@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { auth } from "../Utilities/firebase";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { addUser, removeUser } from "../Utilities/userSlice";
 import { LOGO, LANG } from "../Utilities/constants";
 import { changeGptState } from "../Utilities/gptSlice";
 import { changeLanguage } from "../Utilities/configSlice";
 const Header = () => {
   const user = useSelector((store) => store.user);
+  const {movieId} = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(true);
@@ -36,7 +37,11 @@ const Header = () => {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse");
+        if(movieId){
+          navigate(`/movie/${movieId}`)
+        }else{
+          navigate("/browse");
+        }
       } else {
         dispatch(removeUser());
         navigate("/");
@@ -47,11 +52,13 @@ const Header = () => {
   }, []);
   return (
     <div className="  h-28 absolute w-screen px-4  bg-gradient-to-b from-black flex flex-row justify-between z-20 md:flex-row md:justify-between ">
-      <div className=" h-full w-24 md:w-40 py-2 flex flex-col justify-center">
+      <div className=" h-full w-24 md:w-40 py-2 flex flex-col justify-center" >
         <img
           className="object-fill"
           alt=""
           src={LOGO}
+          role="button"
+          onClick={()=> navigate("/browse")}
         />
       </div>
       {user && (

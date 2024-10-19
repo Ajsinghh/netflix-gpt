@@ -1,16 +1,13 @@
 import React from 'react'
 import useBackgroundVideo from '../Hooks/useBackgroundVideo';
-import { useSelector } from 'react-redux';
+
 
 const VideoTitle = ({movie, shown,showIndex,setShowIndex,numOfMovies}) => {
-  const loading = useBackgroundVideo(movie.id);
+  var trailer = useBackgroundVideo(movie.id);
   
-  const trailer = useSelector(store => store?.movies?.movieTrailer[movie?.id] || [])
-  if(loading){
-    return <p>Loading....</p>
-  }
-  const movieTrailer = trailer.filter((ele) => ele.type === "Trailer");
   
+  if(!trailer) return null;
+  const movieTrailer = trailer.filter((ele) => ele.type === "Trailer")
   const handleRightButton = ()=>{
     setShowIndex((showIndex+1)%numOfMovies);
   }
